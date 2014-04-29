@@ -4,5 +4,10 @@
     <string name="app_name">Ways</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<!-- 主界面信息 -->
+	<string name="home">广场</string>
+	<string name="friend">友人</string>
+	<string name="framily">家人</string>
+	<string name="love">爱情</string>
+	<string name="more">细节</string>
 </resources>

@@ -1,6 +1,6 @@
 package com.example.ways;
 
-import com.example.ways.Debug.LogApi;
+import com.example.ways.debug.LogApi;
 
 import android.os.Bundle;
 import android.os.Debug;

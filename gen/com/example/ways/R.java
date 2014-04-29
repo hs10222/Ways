@@ -36,7 +36,14 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int framily=0x7f050005;
+        public static final int friend=0x7f050004;
         public static final int hello_world=0x7f050002;
+        /**  主界面信息 
+         */
+        public static final int home=0x7f050003;
+        public static final int love=0x7f050006;
+        public static final int more=0x7f050007;
     }
     public static final class style {
         /** 
