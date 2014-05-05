@@ -1,6 +1,8 @@
 package com.example.ways;
 
-import com.example.ways.Debug.LogApi;
+import com.example.ways.debug.LogApi;
+import com.example.ways.utils.ConfigUtil;
+import com.example.ways.view.ControlView;
 
 import android.os.Bundle;
 import android.os.Debug;
@@ -26,6 +28,8 @@ public class MainActivity extends BaseActivity {
 		LinearLayout.LayoutParams llp_loading = new LinearLayout.LayoutParams(screenHeight, screenHeight);
 		ll_loading.setLayoutParams(llp_loading);
 //		ll_loading.setBackgroundResource(R.drawable.ways_loading);
+		ConfigUtil.getInstance().setScreen_height(screenHeight);
+		ConfigUtil.getInstance().setScreen_width(screenWidth);
 		setContentView(ll_loading);
 		//…Ë÷√»´∆¡
 		setFullScreen(true);
@@ -67,7 +71,13 @@ public class MainActivity extends BaseActivity {
 			if(msg.what < 11){
 				ll_loading.setBackgroundResource(R.drawable.ways_loading);
 			}else{
-				ll_loading.setBackgroundColor(Color.RED);
+//				ll_loading.setBackgroundColor(Color.WHITE);
+//				ll_loading.removeAllViews();
+				ControlView mControlView = new ControlView(getApplicationContext());
+				LinearLayout.LayoutParams llp_control = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+				mControlView.setLayoutParams(llp_control);
+				setContentView(mControlView);
+//				ll_loading.addView(mControlView, llp_control);
 			}
 		}
 	};
