@@ -34,8 +34,9 @@ public class ControlView extends LinearLayout implements OnTouchListener{
 	private TextView tv_more;
 	
 	private ImageView im_switch;
-	private int history_id = 1;
 	private final String TAG = "ControlView";
+	private HomeView home;
+	private FriendView friend;
 	public ControlView(Context context) {
 		super(context);
 		this.mContext = context;
@@ -65,19 +66,28 @@ public class ControlView extends LinearLayout implements OnTouchListener{
 				ConfigUtil.getInstance().getScreen_width() * 15 / 720, 
 				ConfigUtil.getInstance().getScreen_width() / 5 * (id - 1), 
 				ConfigUtil.getInstance().getScreen_width() * 80 / 720);
-		TranslateAnimation mAnimation = new TranslateAnimation(0,(id-history_id)*ConfigUtil.getInstance().getScreen_width() / 5, 0, 0);
-		mAnimation.setDuration(500);
-		mAnimation.setFillAfter(true);
 		im_switch.setBackgroundResource(R.drawable.control_which_3);
-//		history_id = id;
-		im_switch.setId(id);
-		history_id = id;
-		im_switch.startAnimation(mAnimation);
-//		im_switch.setLayoutParams(llp_control_view_bottom);
-		if(id == 1){
-			HomeView home = new HomeView(mContext);
+		im_switch.setLayoutParams(llp_control_view_bottom);
+		switch (id) {
+		case 1:
+			ll_content.removeAllViews();
+			if(home == null){
+				home = new HomeView(mContext);
+			}
+			LogApi.Msg(TAG, "ppp++++++");
 			ll_content.addView(home);
+			break;
+		case 2:
+			ll_content.removeAllViews();
+			if(friend == null){
+				friend = new FriendView(mContext);
+			}
+			ll_content.addView(friend);
+			break;
+		default:
+			break;
 		}
+		
 	}
 	
 	/****************************
@@ -86,27 +96,27 @@ public class ControlView extends LinearLayout implements OnTouchListener{
 	private void setControlView(){
 		tv_home = new TextView(mContext);
 		tv_home.setText(R.string.home);
-		tv_home.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 25);
+		tv_home.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 20);
 		tv_home.setGravity(Gravity.CENTER);
 		
 		tv_friend = new TextView(mContext);
 		tv_friend.setText(R.string.friend);
-		tv_friend.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 25);
+		tv_friend.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 20);
 		tv_friend.setGravity(Gravity.CENTER);
 		
 		tv_framily = new TextView(mContext);
 		tv_framily.setText(R.string.framily);
-		tv_framily.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 25);
+		tv_framily.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 20);
 		tv_framily.setGravity(Gravity.CENTER);
 		
 		tv_love = new TextView(mContext);
 		tv_love.setText(R.string.love);
-		tv_love.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 25);
+		tv_love.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 20);
 		tv_love.setGravity(Gravity.CENTER);
 		
 		tv_more = new TextView(mContext);
 		tv_more.setText(R.string.more);
-		tv_more.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 25);
+		tv_more.setTextSize(TypedValue.COMPLEX_UNIT_PX, ConfigUtil.getInstance().getScreen_width() / 20);
 		tv_more.setGravity(Gravity.CENTER);
 		
 		AbsoluteLayout.LayoutParams llp_control_home = new AbsoluteLayout.LayoutParams(

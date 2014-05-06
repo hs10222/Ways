@@ -5,22 +5,20 @@ import com.example.ways.utils.ConfigUtil;
 import android.content.Context;
 import android.graphics.Color;
 import android.widget.LinearLayout;
-
 /**
- * home页面
+ * 朋友界面
  * @author 胡硕
- *
+ * @time 20140506 23:46
  */
-public class HomeView extends BaseLinearLayout{
+public class FriendView extends BaseLinearLayout{
 
-	public HomeView(Context context) {
+	public FriendView(Context context) {
 		super(context);
 		this.setOrientation(LinearLayout.VERTICAL);
-		this.setBackgroundColor(Color.RED);
+		this.setBackgroundColor(Color.GREEN);
 		this.setLayoutParams(new LinearLayout.LayoutParams(ConfigUtil.getInstance().getScreen_width(),ConfigUtil.getInstance().getScreen_height()));
 	}
 
-	//请求数据
 	@Override
 	public void update() {
 		

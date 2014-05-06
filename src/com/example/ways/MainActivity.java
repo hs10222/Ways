@@ -3,6 +3,7 @@ package com.example.ways;
 import com.example.ways.debug.LogApi;
 import com.example.ways.utils.ConfigUtil;
 import com.example.ways.view.ControlView;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import android.os.Bundle;
 import android.os.Debug;
@@ -81,4 +82,5 @@ public class MainActivity extends BaseActivity {
 			}
 		}
 	};
+	
 }
