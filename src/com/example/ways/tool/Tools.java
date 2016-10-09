@@ -18,14 +18,14 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 /**
- * ¹¤¾ßÀà--Ìá¹©³£ÓÃµÄ·½·¨µ÷ÓÃ
- * @author ºúË¶
+ * å·¥å…·ç±»--æä¾›å¸¸ç”¨çš„æ–¹æ³•è°ƒç”¨
+ * @author èƒ¡ç¡•
  * time 20140428 1:05
  */
 public class Tools {
 
 	/***************************************
-	 * º¯Êı:ÅĞ¶ÏÊÇ·ñ´æÔÚsd¿¨(¿ÉÄÜÔÚÄ³Ğ©ÊÖ»úÉÏÃ»°ì·¨ÊµÏÖ)
+	 * å‡½æ•°:åˆ¤æ–­æ˜¯å¦å­˜åœ¨sdå¡(å¯èƒ½åœ¨æŸäº›æ‰‹æœºä¸Šæ²¡åŠæ³•å®ç°)
 	 * @return
 	 *************************************/
 	public static boolean isExitsdCard() {
@@ -37,7 +37,7 @@ public class Tools {
 	}
 	
 	 /**********************************
-     * º¯Êı£º»ñÈ¡´æ´¢¿¨Â·¾¶
+     * å‡½æ•°ï¼šè·å–å­˜å‚¨å¡è·¯å¾„
      * @return
      */
 	 public static String getSdcardPath(){
@@ -49,14 +49,14 @@ public class Tools {
 	    }
 	 
 		/************************************************
-		 * º¯Êı£º»ñÈ¡ÊÖ»úµÄÎ¨Ò»Éè±¸ID
-		 * @param context --ÉÏÏÂÎÄ
-		 * @return IMEIÉè±¸ID
+		 * å‡½æ•°ï¼šè·å–æ‰‹æœºçš„å”¯ä¸€è®¾å¤‡ID
+		 * @param context --ä¸Šä¸‹æ–‡
+		 * @return IMEIè®¾å¤‡ID
 		 *************************************************/
 		public static String getImei(Context context) {
-			// ¶¨ÒåIMEI
+			// å®šä¹‰IMEI
 			String IMEI;
-			// »ñÈ¡µç»°¹¦ÄÜ¹ÜÀíÆ÷
+			// è·å–ç”µè¯åŠŸèƒ½ç®¡ç†å™¨
 			TelephonyManager tm = (TelephonyManager) context
 					.getSystemService(context.TELEPHONY_SERVICE);
 			IMEI = tm.getDeviceId();
@@ -64,26 +64,26 @@ public class Tools {
 		}
 		
 		/*********************************
-		 * º¯Êı£º»ñÈ¡sdÊ£Óà´æ´¢¿Õ¼ä
+		 * å‡½æ•°ï¼šè·å–sdå‰©ä½™å­˜å‚¨ç©ºé—´
 		 * @return
 		 ***********************************/
 		public static long getAvailaleSize() {
-			// È¡µÃSD¿¨ÎÄ¼şÂ·¾¶
+			// å–å¾—SDå¡æ–‡ä»¶è·¯å¾„
 			File path = Environment.getExternalStorageDirectory();
 			StatFs sf = new StatFs(path.getPath());
-			// »ñÈ¡µ¥¸öÊı¾İ¿éµÄ´óĞ¡(Byte)
+			// è·å–å•ä¸ªæ•°æ®å—çš„å¤§å°(Byte)
 			long blockSize = sf.getBlockSize();
-			// ¿ÕÏĞµÄÊı¾İ¿éµÄÊıÁ¿
+			// ç©ºé—²çš„æ•°æ®å—çš„æ•°é‡
 			long freeBlocks = sf.getAvailableBlocks();
-			// ·µ»ØSD¿¨¿ÕÏĞ´óĞ¡
-			// return freeBlocks * blockSize; //µ¥Î»Byte
-			// return (freeBlocks * blockSize)/1024; //µ¥Î»KB
+			// è¿”å›SDå¡ç©ºé—²å¤§å°
+			// return freeBlocks * blockSize; //å•ä½Byte
+			// return (freeBlocks * blockSize)/1024; //å•ä½KB
 			Log.i("sys", "sdcard size ------------>>>"+(freeBlocks*blockSize));
-			return (freeBlocks * blockSize); // µ¥Î»MB
+			return (freeBlocks * blockSize); // å•ä½MB
 		}
 		
 		/**************************************************
-		 *º¯Êı£º»ñÈ¡°æ±¾ºÅ
+		 *å‡½æ•°ï¼šè·å–ç‰ˆæœ¬å·
 		 * @return
 		 ****************************************************/
 		public static int getVersionName(Context context){
@@ -99,7 +99,7 @@ public class Tools {
 		}
 		
 		/***********************************************
-		 * º¯Êı£ºÆ¥ÅäÓÊÏä
+		 * å‡½æ•°ï¼šåŒ¹é…é‚®ç®±
 		 * @return
 		 ***********************************************/
 		public static boolean emailFormat(String mail){
@@ -114,8 +114,8 @@ public class Tools {
 		}
 		
 		/***********************************************************
-		 * º¯Êı£º¼ì²âÍøÂçÊÇ·ñ¿ÉÓÃ
-		 * @param context -- ÉÏÏÂÎÄ
+		 * å‡½æ•°ï¼šæ£€æµ‹ç½‘ç»œæ˜¯å¦å¯ç”¨
+		 * @param context -- ä¸Šä¸‹æ–‡
 		 * @return
 		 ***********************************************************/
 		public static boolean checkNetworkStatus(Context context){
@@ -128,14 +128,30 @@ public class Tools {
 			return true;
 		}
 		/******************************************************************
-		 * µ¯³öÌáÊ¾ĞÅÏ¢Toast
-		 * @param context -- ÉÏÏÂÎÄ
-		 * @param msg		-- ÏÔÊ¾µÄÌáÊ¾ĞÅÏ¢
-		 * @param gravity		-- ÏÔÊ¾µÄÎ»ÖÃ
+		 * å¼¹å‡ºæç¤ºä¿¡æ¯Toast
+		 * @param context -- ä¸Šä¸‹æ–‡
+		 * @param msg		-- æ˜¾ç¤ºçš„æç¤ºä¿¡æ¯
+		 * @param gravity		-- æ˜¾ç¤ºçš„ä½ç½®
 		 *****************************************************************/
 		public static void showToast(Context context,int msg){
 			Toast	toast = Toast.makeText(context,msg,	Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER,0, 0);
 			toast.show();
+		}
+	public static Bitmap getImageBitmap(Context context,Intent intent) {
+		Bitmap bitmap=null;
+		if (intent.getExtras()!=null) {
+		bitmap = (Bitmap) intent.getExtras().get("data");
+		}else {
+		Uri uri = intent.getData();
+		LogUtil.i("aaa", uri.toString());
+		try {
+			bitmap = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+			}
+		}
+		return bitmap;
 		}
 }
